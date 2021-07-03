@@ -51,7 +51,7 @@ void	rotate_a_and_b(t_stacks *this)
     {
         rotate_a(this, FALSE);
         rotate_b(this, FALSE);
-        ft_putstr("rrr\n");
+        ft_putstr("rr\n");
     }
 
 }
