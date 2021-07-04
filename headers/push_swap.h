@@ -1,6 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "array_list.h"
+# include <string.h>
 
 typedef struct s_stacks{
 	t_array_list stack_a;

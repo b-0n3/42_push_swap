@@ -28,6 +28,7 @@ void	rotate_b(t_stacks *this, t_bool print)
     int i;
     int *tmp;
 
+
     if (this != NULL)
     {
         i = this->stack_b.index - 1;

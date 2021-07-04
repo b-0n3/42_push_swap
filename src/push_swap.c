@@ -29,11 +29,17 @@ t_bool check_digits(char *item)
 int *ft_newnb(char *number)
 {
     int *ptr;
+    int nb;
 
     ptr = NULL;
     if (number == NULL || check_digits(number))
         return NULL;
+    nb = atoi(number);
+    if ((ptr = (int *) malloc(sizeof(int))) == NULL)
+        return NULL;
+    memcpy(ptr, &nb, sizof(int));
 
+    return ptr;
 }
 
 int main(int argc, char **argv)
@@ -50,7 +56,7 @@ int main(int argc, char **argv)
         if (stacks.stack_a.push(&stacks.stack_a, ft_newnb(argv[argc]), sizeof(int)) == FALSE)
         {
             ft_putstr("error: \n invalid number\n");
-            
+            stacks.free(&stacks);
         }
     }
     stacks.rb(&stacks, TRUE);
