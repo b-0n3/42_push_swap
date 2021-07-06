@@ -92,14 +92,46 @@ void init_pos(t_pos *pos)
         pos->value = NULL;
     }
 }
+
+int ft_partition(t_stacks *stacks, int low , int high)
+{
+    int *pivot;
+    int *tmp;
+
+    int i;
+    int j;
+    pivot = stacks->stack_a.get(&stacks->stack_a,high);
+    i = low -1;
+    j = low;
+    while (j <= high -1)
+    {
+        tmp = stacks->stack_a.get(&stacks->stack_a, i);
+        if (*pivot  < *tmp)
+        {
+            
+        }
+    }
+}
+
+void quick_sort(t_stacks *stacks, int l, int r)
+{
+    int pi;
+    if (l < r)
+    {
+        pi = ft_partition(stacks, l , r);
+        quick_sort(stacks, l , pi - 1);
+        quick_sort(stacks, pi + 1, r);
+    }
+}
+
+
 void sort_stacks(t_stacks stacks)
 {
     t_pos big;
     size_t i;
 
     i  = 0;
-    init_pos(&pos);
-    
+    quick_sort(&stacks, 0, stacks.stack_a.index);
 
 }
 int main(int argc, char **argv)
@@ -119,5 +151,6 @@ int main(int argc, char **argv)
         }
         argc--;
     }
+    // 1 2 3 5 4 87 5
     sort_stacks(stacks);
 }

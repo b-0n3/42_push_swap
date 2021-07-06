@@ -27,7 +27,7 @@ int		partition
 	{
 		if (cond(this->arr[j], pivot) == 1)
 		{
-			i++;
+			i++; 
 			this->swap(&(this->arr[i]), &(this->arr[j]));
 		}
 		j++;
