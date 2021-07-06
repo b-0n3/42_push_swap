@@ -24,7 +24,7 @@ INC = ./includes/
 
 
 CC = gcc	
-FLAGS= -Wall -Werror -Wextra 	
+FLAGS= -Wall -Werror -Wextra 	-g 
 PARA  = -c	
 
 

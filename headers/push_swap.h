@@ -2,6 +2,7 @@
 # define PUSH_SWAP_H
 # include "array_list.h"
 # include <string.h>
+# include <unistd.h>
 
 typedef struct s_stacks{
 	t_array_list stack_a;
@@ -20,6 +21,19 @@ typedef struct s_stacks{
 	void (*free)(struct s_stacks *this);
 }              t_stacks;
 
+
+typedef struct s_pos{
+	int *value;
+	int index;
+}			t_pos;
+/**
+ *  Utils
+ * 
+ */
+void	ft_putnbr(int n);
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+int		ft_atoi(const char *str);
 
 void	new_stacks(t_stacks *this);
 void	swap_a(t_stacks *this, t_bool print);

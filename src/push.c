@@ -6,7 +6,7 @@ void	push_b(t_stacks *this)
 
     if (this != NULL)
     {
-        if (this->stack_b.index > 0)
+        if (this->stack_a.index > 0)
         {
             ptr = this->stack_a.pop_i(&this->stack_a, this->stack_a.index - 1);
             if (ptr != NULL)

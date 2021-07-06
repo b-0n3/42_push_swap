@@ -23,7 +23,7 @@ t_bool check_digits(char *item)
             return FALSE;
         i++;
     }
-    return (i != 0);
+    return (i > 0);
 }
 
 int *ft_newnb(char *number)
@@ -32,32 +32,92 @@ int *ft_newnb(char *number)
     int nb;
 
     ptr = NULL;
-    if (number == NULL || check_digits(number))
+    if (number == NULL || !check_digits(number))
         return NULL;
     nb = atoi(number);
     if ((ptr = (int *) malloc(sizeof(int))) == NULL)
         return NULL;
-    memcpy(ptr, &nb, sizof(int));
+    memcpy(ptr, &nb, sizeof(int));
 
     return ptr;
 }
+void print_nb(int *item)
+{
+    int *i;
 
+    if (item != NULL)
+    {
+         i = (int *) item;
+       ft_putnbr(*i);
+       ft_putstr("\t");
+    }
+}
+
+void print_stacks(t_stacks stacks)
+{
+    size_t i;
+    size_t j;
+    int  max;
+
+    i = stacks.stack_a.index;
+    j = stacks.stack_b.index;
+    max = j > i ? j : i;
+    while (max >= 0)
+    {
+        i--;
+        j--;
+        print_nb(stacks.stack_a.get(&stacks.stack_a, i));
+        print_nb(stacks.stack_b.get(&stacks.stack_b, i));
+        ft_putstr("\n");
+        max--;
+    }
+    ft_putstr("_____\n");
+}
+int cond(void *item1 , void *item2)
+{
+    int *nb1 = (int *) item1;
+    int *nb2 = (int *) item2;
+
+    if (*nb1 > *nb2)
+        return 1;
+    if (*nb2 > *nb1)
+        return -1;
+    return 0;
+}
+void init_pos(t_pos *pos)
+{
+    if (pos != NULL)
+    {
+        pos->index = 0;
+        pos->value = NULL;
+    }
+}
+void sort_stacks(t_stacks stacks)
+{
+    t_pos big;
+    size_t i;
+
+    i  = 0;
+    init_pos(&pos);
+    
+
+}
 int main(int argc, char **argv)
 {
     t_stacks stacks;
-    int nb;
-
+   
     if (argc < 2)
         print_usage();
     new_stacks(&stacks);
     argc--;
-    while (argc > 1)
+    while (argc > 0)
     {
         if (stacks.stack_a.push(&stacks.stack_a, ft_newnb(argv[argc]), sizeof(int)) == FALSE)
         {
-            ft_putstr("error: \n invalid number\n");
+            ft_putstr("Error\n");
             stacks.free(&stacks);
         }
+        argc--;
     }
-    stacks.rb(&stacks, TRUE);
+    sort_stacks(stacks);
 }

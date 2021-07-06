@@ -2,7 +2,7 @@
 
 void	reverse_rotate_a(t_stacks *this, t_bool print)
 {
-    int i;
+    size_t i;
     int *tmp;
 
     if (this != NULL)
@@ -11,20 +11,20 @@ void	reverse_rotate_a(t_stacks *this, t_bool print)
         tmp = this->stack_a.get(&this->stack_a, i);
         if (print)
             ft_putstr("rra\n");
-        while (i < this->stack_a.index - 1)
+        while (i < this->stack_a.index - 1 )
         {
             this->stack_a.update_at(&this->stack_a,
                  this->stack_a.get(&this->stack_a, i + 1),
                   i);
             i++;
         }
-        this->stack_a.update_at(&this->stack_a, tmp, this->stack_a.index);
+        this->stack_a.update_at(&this->stack_a, tmp, this->stack_a.index -1 );
     }
 }
 
 void	reverse_rotate_b(t_stacks *this, t_bool print)
 {
-    int i;
+    size_t i;
     int *tmp;
 
     if (this != NULL)
@@ -40,7 +40,7 @@ void	reverse_rotate_b(t_stacks *this, t_bool print)
                   i);
             i++;
         }
-        this->stack_b.update_at(&this->stack_b, tmp, this->stack_b.index);
+        this->stack_b.update_at(&this->stack_b, tmp, this->stack_b.index -1 );
     }
 }
 

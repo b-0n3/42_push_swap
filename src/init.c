@@ -4,8 +4,8 @@ void	free_stacks(t_stacks *this)
 {
     if (this != NULL)
     {
-        this->stack_b.free(&this->stack_b , NULL);
-        this->stack_a.free(&this->stack_a , NULL);
+        this->stack_b.free(&this->stack_b , &free);
+        this->stack_a.free(&this->stack_a , &free);
     }
 }
 

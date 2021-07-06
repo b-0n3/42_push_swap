@@ -8,7 +8,7 @@ void	swap_a(t_stacks *this, t_bool print)
         {
             if (print)
                 ft_putstr("sa\n");
-            this->stack_a.swap_i(&this->stack_a, 0,1);
+            this->stack_a.swap_i(&this->stack_a, this->stack_a.index -2 , this->stack_a.index -1 );
         }
     }
 }
@@ -20,7 +20,7 @@ void	swap_b(t_stacks *this, t_bool print){
         {
             if (print)
                 ft_putstr("sb\n");
-            this->stack_b.swap_i(&this->stack_b, 0,1);
+            this->stack_b.swap_i(&this->stack_b,  this->stack_b.index -2 , this->stack_b.index -1 );
         }
     }
 }

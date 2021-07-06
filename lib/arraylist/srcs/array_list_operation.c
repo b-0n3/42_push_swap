@@ -14,7 +14,7 @@
 
 t_bool	push(t_array_list *this, void *value, size_t size_of_item)
 {
-	if (this != NULL)
+	if (this != NULL && value != NULL)
 		if (this->check_data_type(this, size_of_item))
 		{
 			if (this->check_size(this))
