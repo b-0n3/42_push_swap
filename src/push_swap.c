@@ -93,47 +93,40 @@ void init_pos(t_pos *pos)
     }
 }
 
-int ft_partition(t_stacks *stacks, int low , int high)
-{
-    int *pivot;
-    int *tmp;
 
-    int i;
-    int j;
-    pivot = stacks->stack_a.get(&stacks->stack_a,high);
-    i = low -1;
-    j = low;
-    while (j <= high -1)
-    {
-        tmp = stacks->stack_a.get(&stacks->stack_a, i);
-        if (*pivot  < *tmp)
-        {
-            
-        }
-    }
+void printnb(void *item)
+{
+    int *i;
+
+    i = (int *) item;
+    printf("%d\n", *i);
 }
 
-void quick_sort(t_stacks *stacks, int l, int r)
+int stack_partition(t_stacks *stacks, int low , int high)
 {
-    int pi;
-    if (l < r)
-    {
-        pi = ft_partition(stacks, l , r);
-        quick_sort(stacks, l , pi - 1);
-        quick_sort(stacks, pi + 1, r);
-    }
+   
 }
 
+void  quick_sort(t_stacks *stacks, int low , int high)
+{
+    
+}
 
 void sort_stacks(t_stacks stacks)
 {
-    t_pos big;
-    size_t i;
 
-    i  = 0;
-    quick_sort(&stacks, 0, stacks.stack_a.index);
+    quick_sort(&stacks,0 , stacks.stack_a.index - 1)
+    // // t_array_list *clone;
 
+    // // clone = stacks.stack_a.clone(&stacks.stack_a, FALSE, NULL);
+    // if (clone != NULL)
+    // {
+    // //     clone->sort(clone ,cond,0, clone->index -1);
+    // //     clone->foreach(clone, &printnb);
+    // //  clone->free(clone , &free);   
+    // }
 }
+
 int main(int argc, char **argv)
 {
     t_stacks stacks;

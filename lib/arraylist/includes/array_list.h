@@ -31,6 +31,8 @@ typedef	struct			s_array_list{
 	size_t				size_of_object;
 	t_bool				(*push)(struct s_array_list *this, void *value,
 	size_t size_of_item);
+	t_bool (*push_clone)(struct s_array_list *this, struct s_array_list original,
+                             t_bool is_not_primitive, void *(*__clone)(void *item));
 	void				*(*get)(struct s_array_list *this, size_t index);
 	t_bool				(*check_size)(struct s_array_list *this);
 	t_bool				(*check_data_type)(struct s_array_list *this,
@@ -54,6 +56,8 @@ typedef	struct			s_array_list{
 	void				*(*pop_i)(struct s_array_list *this, size_t index);
 	struct s_array_list	*(*filter)(struct s_array_list list, size_t size,
 	t_bool				(*cond)(void *item), void *(*map)(void *item));
+	struct s_array_list *(*clone)(struct s_array_list *this ,
+	t_bool is_not_primitive, void *(*__clone)(void *item));
 }						t_array_list;
 
 t_array_list			*new_array_list(t_array_list *this,
@@ -80,4 +84,8 @@ void					*pop_index(t_array_list *this, size_t index);
 t_array_list			*filter_list(t_array_list list, size_t size,
 	t_bool (*cond)(void *item), void *(*map)(void *item));
 void					swap_i(t_array_list *this, size_t i1, size_t i2);
+t_array_list *clone(t_array_list *this ,t_bool is_not_primitive,
+   void *(*__clone)(void *item));
+t_bool push_clone(t_array_list *this, t_array_list original,
+                  t_bool is_not_primitive, void *(*__clone)(void *item));
 #endif

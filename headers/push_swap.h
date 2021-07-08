@@ -19,13 +19,18 @@ typedef struct s_stacks{
 	void (*rrb)(struct s_stacks *this, t_bool print);
 	void (*rrr)(struct s_stacks *this);
 	void (*free)(struct s_stacks *this);
+	t_bool (*a_is_sorted)(struct s_stacks *this);
+	t_bool (*b_is_sorted)(struct s_stacks *this);
+	t_bool (*a_is_empty)(struct s_stacks *this);
+	t_bool (*b_is_empty)(struct s_stacks *this);
 }              t_stacks;
 
 
-typedef struct s_pos{
+typedef struct s_chunk{
 	int *value;
 	int index;
-}			t_pos;
+	int chunk;
+}			t_chunk;
 /**
  *  Utils
  * 
@@ -48,4 +53,11 @@ void	reverse_rotate_a(t_stacks *this, t_bool print);
 void	reverse_rotate_b(t_stacks *this, t_bool print);
 void	reverse_rotate_a_and_b(t_stacks *this);
 void	free_stacks(t_stacks *this);
+
+
+t_bool stack_a_is_sorted(t_stacks *this);
+t_bool stack_b_is_sorted(t_stacks *this);
+t_bool stack_a_is_empty(t_stacks *this);
+t_bool stack_b_is_empty(t_stacks *this);
+
 #endif

@@ -43,6 +43,8 @@ t_array_list	*new_array_list(
 		this->pop_i = &pop_index;
 		this->swap_i = &swap_i;
 		this->filter = &filter_list;
+		this->clone = &clone;
+		this->push_clone = &push_clone;
 		return (this);
 	}
 	return (NULL);

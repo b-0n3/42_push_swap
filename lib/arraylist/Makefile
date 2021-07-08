@@ -18,13 +18,14 @@ SRC = 	./srcs/array_list.c \
 		./srcs/array_list_foreach.c \
 		./srcs/array_list_operation.c \
 		./srcs/array_list_pull.c \
-		./srcs/array_list_sort.c
+		./srcs/array_list_sort.c \
+		./srcs/array_list_clone.c
 
 INC = ./includes/
 
 
 CC = gcc	
-FLAGS= -Wall -Werror -Wextra 	-g 
+FLAGS= -Wall -Werror -Wextra 	
 PARA  = -c	
 
 
@@ -32,7 +33,7 @@ PARA  = -c
 all: $(NAME)	
 
 $(NAME): $(OBJ)
-	$(CC) $(PARA) $(SRC) -I $(INC) $(FLAGS)
+	$(CC) $(PARA)  $(SRC) -I $(INC) $(FLAGS) -g 
 	ar rc $(NAME) *.o
 
 
