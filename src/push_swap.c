@@ -35,20 +35,21 @@ int *ft_newnb(char *number)
     if (number == NULL || !check_digits(number))
         return NULL;
     nb = atoi(number);
+    if (nb >= INT32_MAX || nb <= INT32_MIN)
+        return NULL;
     if ((ptr = (int *) malloc(sizeof(int))) == NULL)
         return NULL;
     memcpy(ptr, &nb, sizeof(int));
 
     return ptr;
 }
-void print_nb(int *item)
+void print_nb(t_chunk *item)
 {
-    int *i;
+   
 
     if (item != NULL)
     {
-         i = (int *) item;
-       ft_putnbr(*i);
+       item->print(item);
        ft_putstr("\t");
     }
 }
@@ -73,25 +74,7 @@ void print_stacks(t_stacks stacks)
     }
     ft_putstr("_____\n");
 }
-int cond(void *item1 , void *item2)
-{
-    int *nb1 = (int *) item1;
-    int *nb2 = (int *) item2;
 
-    if (*nb1 > *nb2)
-        return 1;
-    if (*nb2 > *nb1)
-        return -1;
-    return 0;
-}
-void init_pos(t_pos *pos)
-{
-    if (pos != NULL)
-    {
-        pos->index = 0;
-        pos->value = NULL;
-    }
-}
 
 
 void printnb(void *item)
@@ -102,30 +85,7 @@ void printnb(void *item)
     printf("%d\n", *i);
 }
 
-int stack_partition(t_stacks *stacks, int low , int high)
-{
-   
-}
 
-void  quick_sort(t_stacks *stacks, int low , int high)
-{
-    
-}
-
-void sort_stacks(t_stacks stacks)
-{
-
-    quick_sort(&stacks,0 , stacks.stack_a.index - 1)
-    // // t_array_list *clone;
-
-    // // clone = stacks.stack_a.clone(&stacks.stack_a, FALSE, NULL);
-    // if (clone != NULL)
-    // {
-    // //     clone->sort(clone ,cond,0, clone->index -1);
-    // //     clone->foreach(clone, &printnb);
-    // //  clone->free(clone , &free);   
-    // }
-}
 
 int main(int argc, char **argv)
 {
@@ -137,13 +97,17 @@ int main(int argc, char **argv)
     argc--;
     while (argc > 0)
     {
-        if (stacks.stack_a.push(&stacks.stack_a, ft_newnb(argv[argc]), sizeof(int)) == FALSE)
+        if (stacks.stack_a.push(&stacks.stack_a,
+         new_chunk(ft_newnb(argv[argc]), stacks.stack_a.index)
+         , sizeof(t_chunk *)) == FALSE)
         {
             ft_putstr("Error\n");
             stacks.free(&stacks);
+            exit(1);
         }
         argc--;
     }
     // 1 2 3 5 4 87 5
-    sort_stacks(stacks);
+    // sort_stacks(stacks);
+    print_stacks(stacks);
 }

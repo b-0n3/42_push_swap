@@ -30,7 +30,17 @@ typedef struct s_chunk{
 	int *value;
 	int index;
 	int chunk;
+	void (*free)(void *this);
+	void (*print)(struct s_chunk *this);
 }			t_chunk;
+
+
+t_chunk	*new_chunk(int *value, int index);
+int		chunk_compare(void *v1, void *v2);
+void	print_chunk(t_chunk *this);
+
+void	free_chunk(void *this);
+
 /**
  *  Utils
  * 

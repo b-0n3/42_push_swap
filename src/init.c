@@ -4,8 +4,8 @@ void	free_stacks(t_stacks *this)
 {
     if (this != NULL)
     {
-        this->stack_b.free(&this->stack_b , &free);
-        this->stack_a.free(&this->stack_a , &free);
+        this->stack_b.free(&this->stack_b , &free_chunk);
+        this->stack_a.free(&this->stack_a , &free_chunk);
     }
 }
 
@@ -13,8 +13,8 @@ void	new_stacks(t_stacks *this)
 {
     if (this != NULL)
     {
-        new_array_list(&this->stack_a, 10, sizeof(int));
-        new_array_list(&this->stack_b, 10, sizeof(int));
+        new_array_list(&this->stack_a, 10, sizeof(t_chunk *));
+        new_array_list(&this->stack_b, 10, sizeof(t_chunk *));
         this->sa = &swap_a;
         this->sb = &swap_b;
         this->ss = &swap_a_and_b;

@@ -2,17 +2,17 @@
 t_bool check_stack_is_sorted(t_array_list *list)
 {
     int i;
-    int *min;
-    int *current_value;
+    t_chunk *min;
+    t_chunk *current_value;
     
     if (list == NULL)
         return FALSE;
     i = (int) list->index - 1;
-    min = list->get(list, i);
+    min = (t_chunk *) list->get(list, i);
     while(i >= 0)
     {
-        current_value = list->get(list , i);
-        if (*min > *current_value)
+        current_value = (t_chunk *)list->get(list , i);
+        if (*(min->value) > *(current_value->value))
             return FALSE;
     }
     return TRUE;
