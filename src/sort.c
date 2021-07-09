@@ -19,16 +19,40 @@ void *clone_chunk(void *item)
     return chunk;
 }
 
-void sort_stacks(t_stacks *stacks, t_array_list clone)
-{
-    t_array_list *clone;
 
+void clone_a_first_chunks_and_sort_it(
+    t_stacks *stacks,
+    t_array_list *clone
+)
+{
+
+}
+
+void clone_b_first_chunks_and_sort_it(
+    t_stacks *stacks,
+    t_array_list *clone
+)
+{
+
+}
+
+// please pass a valid clone 
+void sort_stacks(t_stacks *stacks)
+{
+    const t_array_list clone;
+
+    new_array_list(&clone ,  10 , sizeof(chunk *));
     if (!stacks->a_is_sorted(stacks) && !stacks->a_is_empty(stacks))
     {
-
+        // TODO: start clone first chunk and sort
+        clone_a_first_chunks_and_sort_it(stacks ,&clone);
+        clone.free(&clone , &free_chunk);
+        sort_stacks(stacks);
     }
-    else if (!stacks->a_is_sorted(stacks) && !stacks->a_is_empty(stacks))
+    else if (!stacks->a_is_empty(stacks))
     {
-
+        clone_b_first_chunks_and_sort_it(stacks ,&clone);
+       clone.free(&clone , &free_chunk);
+        sort_stacks(stacks);
     }
 }
