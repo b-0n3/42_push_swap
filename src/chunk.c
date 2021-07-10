@@ -36,8 +36,12 @@ int		chunk_compare(void *v1, void *v2)
 
 void print_chunk(t_chunk *this)
 {
-        if (this != NULL)
+        if (this != NULL && this->value != NULL)
+        {
             ft_putnbr(*(this->value));
+            ft_putstr("   chunk is ");
+            ft_putnbr(this->chunk);
+        }
 }
 
 void	free_chunk(void *this)

@@ -1,12 +1,18 @@
 #include "push_swap.h"
+int ft_strlen(char *str)
+{
+	int i;
 
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return i;
+}
 void	ft_putstr(char *str)
 {
 	if (str != NULL)
 	{
-		ft_putchar(*str);
-		while (*(str++) != '\0')
-			ft_putchar(*str);
+		write(1, str, ft_strlen(str));
 	}
 }
 

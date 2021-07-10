@@ -7,7 +7,7 @@ ARRAY_LIST_INC = ./lib/arraylist/includes/
 INC= ./headers/ -I $(ARRAY_LIST_INC)
 
 SRC= ./src/init.c ./src/push_swap.c ./src/push.c ./src/reverse_rotate.c ./src/rotate.c ./src/swap.c \
- ./src/utils.c ./src/check.c ./src/chunk.c
+ ./src/utils.c ./src/check.c ./src/chunk.c ./src/sort.c
 
 FLAGS = -Wall -Wextra -Werror -g 
 

@@ -7,13 +7,16 @@ t_bool check_stack_is_sorted(t_array_list *list)
     
     if (list == NULL)
         return FALSE;
-    i = (int) list->index - 1;
+    i = (int)( list->index - 1);
     min = (t_chunk *) list->get(list, i);
-    while(i >= 0)
+    while(i > 0)
     {
+        i--;
         current_value = (t_chunk *)list->get(list , i);
-        if (*(min->value) > *(current_value->value))
+        if (current_value->value != NULL && min->value != NULL)
+         if (*(min->value) > *(current_value->value))
             return FALSE;
+       min = current_value;
     }
     return TRUE;
 }

@@ -6,13 +6,14 @@ void	push_b(t_stacks *this)
 
     if (this != NULL)
     {
-        if (this->stack_a.index > 0)
+        if (!this->a_is_empty(this))
         {
             ptr = this->stack_a.pop_i(&this->stack_a, this->stack_a.index - 1);
             if (ptr != NULL)
             {
                 ft_putstr("pb\n");
-                this->stack_b.push(&this->stack_b, ptr, sizeof (int));            
+                   ((t_chunk*)ptr)->chunk++;
+                this->stack_b.push(&this->stack_b, ptr, sizeof (t_chunk *));            
             }
         }
     }
@@ -24,13 +25,14 @@ void	push_a(t_stacks *this)
 
     if (this != NULL)
     {
-        if (this->stack_b.index > 0)
+        if (!this->b_is_empty(this))
         {
             ptr = this->stack_b.pop_i(&this->stack_b, this->stack_b.index - 1);
             if (ptr != NULL)
             {
                 ft_putstr("pa\n");
-                this->stack_a.push(&this->stack_a, ptr, sizeof (int));            
+                ((t_chunk*)ptr)->chunk++;
+                this->stack_a.push(&this->stack_a, ptr, sizeof (t_chunk *));            
             }
         }
     }

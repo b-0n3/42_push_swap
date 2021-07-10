@@ -4,7 +4,7 @@
 void	rotate_a(t_stacks *this, t_bool print)
 {
     int i;
-    int *tmp;
+    t_chunk *tmp;
 
     if (this != NULL)
     {
@@ -26,7 +26,7 @@ void	rotate_a(t_stacks *this, t_bool print)
 void	rotate_b(t_stacks *this, t_bool print)
 {
     int i;
-    int *tmp;
+    t_chunk *tmp;
 
 
     if (this != NULL)
@@ -34,7 +34,7 @@ void	rotate_b(t_stacks *this, t_bool print)
         i = this->stack_b.index - 1;
         tmp = this->stack_b.get(&this->stack_b, i);
         if (print)
-            ft_putstr("ra\n");
+            ft_putstr("rb\n");
         while (i > 0)
         {
             this->stack_b.update_at(&this->stack_b,

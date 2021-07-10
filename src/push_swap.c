@@ -50,7 +50,7 @@ void print_nb(t_chunk *item)
     if (item != NULL)
     {
        item->print(item);
-       ft_putstr("\t");
+      
     }
 }
 
@@ -60,15 +60,17 @@ void print_stacks(t_stacks stacks)
     size_t j;
     int  max;
 
-    i = stacks.stack_a.index;
-    j = stacks.stack_b.index;
+    i = stacks.stack_a.index ;
+    j = stacks.stack_b.index ;
     max = j > i ? j : i;
+  
     while (max >= 0)
     {
         i--;
         j--;
         print_nb(stacks.stack_a.get(&stacks.stack_a, i));
-        print_nb(stacks.stack_b.get(&stacks.stack_b, i));
+         ft_putstr(" \t\t\t");
+        print_nb(stacks.stack_b.get(&stacks.stack_b, j));
         ft_putstr("\n");
         max--;
     }
@@ -109,5 +111,6 @@ int main(int argc, char **argv)
     }
     // 1 2 3 5 4 87 5
     // sort_stacks(stacks);
-    print_stacks(stacks);
+  //  print_stacks(stacks);
+     sort_stacks(&stacks);
 }

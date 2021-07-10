@@ -65,9 +65,11 @@ void	reverse_rotate_a_and_b(t_stacks *this);
 void	free_stacks(t_stacks *this);
 
 
+void print_stacks(t_stacks stacks);
+void sort_stacks(t_stacks *stacks);
 t_bool stack_a_is_sorted(t_stacks *this);
 t_bool stack_b_is_sorted(t_stacks *this);
 t_bool stack_a_is_empty(t_stacks *this);
 t_bool stack_b_is_empty(t_stacks *this);
-
+void sort_tree(t_stacks *stacks, t_bool is_a);
 #endif
