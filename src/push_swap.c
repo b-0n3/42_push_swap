@@ -4,6 +4,7 @@ void print_usage(void)
     ft_putstr("usage:\n\t ./push_swap <list of number>\n");
     exit(1);
 }
+
 t_bool check_digits(char *item)
 {
     int i;
@@ -13,7 +14,7 @@ t_bool check_digits(char *item)
     i = 0;
     while (item[i] != '\0')
     {
-        if (signe == 0 && item[i] == '-')
+        if (signe == 0 && (item[i] == '-' ||  item[i] == '+'))
         {
             signe = 1;
             i++;
@@ -21,6 +22,8 @@ t_bool check_digits(char *item)
         }
         if ((item[i] < '0' || item[i] > '9'))
             return FALSE;
+        else
+            signe = 1;
         i++;
     }
     return (i > 0);
@@ -34,7 +37,7 @@ int *ft_newnb(char *number)
     ptr = NULL;
     if (number == NULL || !check_digits(number))
         return NULL;
-    nb = atoi(number);
+    nb = ft_atoi(number);
     if (nb >= INT32_MAX || nb <= INT32_MIN)
         return NULL;
     if ((ptr = (int *) malloc(sizeof(int))) == NULL)
@@ -45,12 +48,9 @@ int *ft_newnb(char *number)
 }
 void print_nb(t_chunk *item)
 {
-   
-
     if (item != NULL)
     {
        item->print(item);
-      
     }
 }
 
@@ -79,22 +79,35 @@ void print_stacks(t_stacks stacks)
 
 
 
-void printnb(void *item)
+
+t_bool check_deplicate(t_stacks stacks)
 {
-    int *i;
-
-    i = (int *) item;
-    printf("%d\n", *i);
+    int i;
+    int j;
+    t_chunk *chunk;
+    t_chunk *current;
+    i =0;
+    while (i < (int)stacks.stack_a.index)
+    {
+        j = i +1;
+        chunk = stacks.stack_a.get(&stacks.stack_a, i);
+        if (chunk != NULL)
+            while(j < (int)stacks.stack_a.index)
+            {
+                current = stacks.stack_a.get(&stacks.stack_a, j);
+                if (current != NULL && *(current->value) == *(chunk->value))
+                    return (TRUE);
+                j++;
+            }
+        i++;
+    }
+    return (FALSE);
 }
-
-
 
 int main(int argc, char **argv)
 {
     t_stacks stacks;
    
-    if (argc < 2)
-        print_usage();
     new_stacks(&stacks);
     argc--;
     while (argc > 0)
@@ -105,12 +118,17 @@ int main(int argc, char **argv)
         {
             ft_putstr("Error\n");
             stacks.free(&stacks);
-            exit(1);
+            exit(255);
         }
         argc--;
     }
-    // 1 2 3 5 4 87 5
-    // sort_stacks(stacks);
-  //  print_stacks(stacks);
+    if (check_deplicate(stacks))
+    {
+        ft_putstr("Error\n");
+        stacks.free(&stacks);
+        exit(255);
+    }
      sort_stacks(&stacks);
+     stacks.free(&stacks);
+    // system("leaks push_swap");
 }

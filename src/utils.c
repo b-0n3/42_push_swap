@@ -53,7 +53,7 @@ int	ft_isspace(char c)
 int	ft_atoi(const char *str)
 {
 	int				i;
-	int				n;
+	long long				n;
 	int				signe;
 
 	n = 0;
@@ -68,11 +68,12 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && (str[i] <= '9') && str[i] != '\0')
 	{
-		if (((unsigned long)n > 9223372036854775807 / 10)
-			|| (((unsigned long)n == 9223372036854775807 / 10)
+		if (((unsigned long)n > INT32_MAX)
+			|| (((unsigned long)n == INT32_MAX)
 				&& ((unsigned long)n % 10) > 7))
-			return (0);
+		
+			return INT32_MAX;
 		n = n * 10 + (*(str + (i++)) - '0');
 	}
-	return (n * signe);
+	return ((int)n * signe);
 }

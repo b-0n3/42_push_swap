@@ -1,6 +1,8 @@
 #include "push_swap.h"
 
 int current_chunk = 0;
+
+
 void *clone_chunk(void *item)
 {
     t_chunk *chunk;
@@ -132,10 +134,7 @@ void clone_a_first_chunks_and_sort_it(
    pivot->free(pivot);
 }
 
-void sort_five(t_stacks *stacks, t_bool is_a)
-{
-    
-}
+
 
 void clone_b_first_chunks_and_sort_it(
     t_stacks *stacks,
@@ -145,7 +144,7 @@ void clone_b_first_chunks_and_sort_it(
     int nb_ra = 0;
     t_chunk *pivot;
     t_chunk *current;
-    current_chunk++;
+   
     size_t stack_size = stacks->stack_b.index;
     pivot = filter_first_chunk_and_get_pivot(stacks->stack_b, clone);
    
@@ -182,14 +181,18 @@ void clone_b_first_chunks_and_sort_it(
    pivot->free(pivot);
 }
 
-// please pass a valid clone 
+
+ 
 void sort_stacks(t_stacks *stacks)
 {
     t_array_list clone;
 
+    current_chunk++;
     new_array_list(&clone ,  10 , sizeof(t_chunk *));
-   // print_stacks(*stacks);
-    if (stacks->stack_b.index == 3)
+   
+    if (stacks->stack_a.index == 3)
+        sort_tree(stacks, TRUE);
+      if (stacks->stack_b.index == 3)
     {
         sort_tree(stacks, FALSE);
         if (stacks->a_is_sorted(stacks))
@@ -199,21 +202,12 @@ void sort_stacks(t_stacks *stacks)
         stacks->pa(stacks);
         }
     }
-    if (stacks->stack_a.index == 3)
-        sort_tree(stacks, TRUE);
-     
-  //print_stacks(*stacks);
+
     if (!stacks->a_is_sorted(stacks) && stacks->stack_a.index > 2)
     {
-        // TODO: start clone first chunk and sort
         clone_a_first_chunks_and_sort_it(stacks ,&clone);
         
        clone.free(&clone , &free_chunk);
-    //    if (stacks->a_is_sorted(stacks) && stacks->b_is_empty(stacks))
-    //    {
-    //  //     print_stacks(*stacks);
-    //     return;
-    //    }
         sort_stacks(stacks);
     }
     if (stacks->stack_a.index == 2)
@@ -235,11 +229,11 @@ void sort_stacks(t_stacks *stacks)
     {
         clone_b_first_chunks_and_sort_it(stacks ,&clone);
          clone.free(&clone , &free_chunk);
-     
         sort_stacks(stacks);
     }
-  //  print_stacks(*stacks);
 }
+
+
 int get_min_pos(t_array_list list)
 {
     int min;

@@ -1,4 +1,5 @@
 #include "push_swap.h"
+extern int current_chunk;
 
 void	push_b(t_stacks *this)
 {
@@ -12,7 +13,7 @@ void	push_b(t_stacks *this)
             if (ptr != NULL)
             {
                 ft_putstr("pb\n");
-                   ((t_chunk*)ptr)->chunk++;
+                   ((t_chunk*)ptr)->chunk =current_chunk;
                 this->stack_b.push(&this->stack_b, ptr, sizeof (t_chunk *));            
             }
         }
@@ -31,7 +32,7 @@ void	push_a(t_stacks *this)
             if (ptr != NULL)
             {
                 ft_putstr("pa\n");
-                ((t_chunk*)ptr)->chunk++;
+                ((t_chunk*)ptr)->chunk = current_chunk;
                 this->stack_a.push(&this->stack_a, ptr, sizeof (t_chunk *));            
             }
         }
