@@ -12,7 +12,7 @@
 
 #include "array_list.h"
 
-	void	delete_if_free
+void	delete_if_free
 (t_array_list *this, t_bool (*cond)(void *item),
  void (*fe)(void *item), size_t ixx)
 {
@@ -35,7 +35,7 @@
 	}
 }
 
-	void	delete_if
+void	delete_if
 (t_array_list *this, t_bool (*cond)(void *item), void (*fe)(void *item))
 {
 	size_t i;
