@@ -6,22 +6,22 @@
 /*   By: aait-ham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 19:37:04 by aait-ham          #+#    #+#             */
-/*   Updated: 2021/02/09 19:37:13 by aait-ham         ###   ########.fr       */
+/*   Updated: 2021/07/11 19:09:31 by aait-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_list.h"
 
 /*
-*** @author b0n3@1337
-***	this{ 1,1,2,3,4,5,5,6,7}
-*** i      /
-*** [1,1,2,4,5,5,6,7]
-*** this function  return item with the index
-*** i and delete it from the array List
-*** @param this (pointer to this arrayList ) / index item index
-*** @return this[i]
-*/
+ *** @author b0n3@1337
+ ***	this{ 1,1,2,3,4,5,5,6,7}
+ *** i      /
+ *** [1,1,2,4,5,5,6,7]
+ *** this function  return item with the index
+ *** i and delete it from the array List
+ *** @param this (pointer to this arrayList ) / index item index
+ *** @return this[i]
+ */
 
 void	*pop_index(t_array_list *this, size_t index)
 {

@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_list_foreach.c                               :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aait-ham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/09 19:37:36 by aait-ham          #+#    #+#             */
-/*   Updated: 2021/07/11 19:09:16 by aait-ham         ###   ########.fr       */
+/*   Created: 2021/07/11 19:06:15 by aait-ham          #+#    #+#             */
+/*   Updated: 2021/07/11 19:06:20 by aait-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_list.h"
+#include "push_swap.h"
 
-void	foreach(t_array_list *this, void (*f)(void *item))
+void	push_b_cmd(t_stacks *this)
 {
-	size_t i;
-
-	i = 0;
-	while (i < this->index)
-	{
-		if (this->arr[i] != NULL)
-			f(this->arr[i]);
-		i++;
-	}
+	if (this != NULL)
+		this->pb(this, FALSE);
 }
 
-void	ft_swap(void **a, void **b)
+void	push_a_cmd(t_stacks *this)
 {
-	void *temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
+	if (this != NULL)
+		this->pa(this,  FALSE);
 }

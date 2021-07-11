@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_list_foreach.c                               :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aait-ham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/09 19:37:36 by aait-ham          #+#    #+#             */
-/*   Updated: 2021/07/11 19:09:16 by aait-ham         ###   ########.fr       */
+/*   Created: 2021/07/11 19:10:26 by aait-ham          #+#    #+#             */
+/*   Updated: 2021/07/11 19:10:31 by aait-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_list.h"
+#include "get_next_line.h"
 
-void	foreach(t_array_list *this, void (*f)(void *item))
+char		*search(int fd, char **rest, int *ret)
 {
-	size_t i;
+	char	*tmp;
+	char	*ptr;
 
-	i = 0;
-	while (i < this->index)
+	ptr = malloc(BUFFER_SIZE + 1);
+	while (ft_strchr(*rest, '\n') == NULL)
 	{
-		if (this->arr[i] != NULL)
-			f(this->arr[i]);
-		i++;
+		*ret = read(fd, ptr, BUFFER_SIZE);
+		ptr[*ret] = '\0';
+		tmp = ft_strjoin(*rest, ptr);
+		free(*rest);
+		*rest = ft_strdup(tmp);
+		free(tmp);
+		if (*ret == 0)
+			break ;
 	}
-}
-
-void	ft_swap(void **a, void **b)
-{
-	void *temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
+	free(ptr);
+	return (*rest);
 }

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_list_foreach.c                               :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aait-ham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/09 19:37:36 by aait-ham          #+#    #+#             */
-/*   Updated: 2021/07/11 19:09:16 by aait-ham         ###   ########.fr       */
+/*   Created: 2021/07/11 19:07:08 by aait-ham          #+#    #+#             */
+/*   Updated: 2021/07/11 19:07:14 by aait-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_list.h"
+#include "push_swap.h"
 
-void	foreach(t_array_list *this, void (*f)(void *item))
+void	rotate_a_cmd(t_stacks *this)
 {
-	size_t i;
-
-	i = 0;
-	while (i < this->index)
-	{
-		if (this->arr[i] != NULL)
-			f(this->arr[i]);
-		i++;
-	}
+	if (this != NULL)
+		this->ra(this, FALSE);
 }
 
-void	ft_swap(void **a, void **b)
+void	rotate_b_cmd(t_stacks *this)
 {
-	void *temp;
+	if (this != NULL)
+		this->rb(this, FALSE);
+}
 
-	temp = *a;
-	*a = *b;
-	*b = temp;
+void	rotate_a_and_b_cmd(t_stacks *this)
+{
+	if (this != NULL)
+		this->rr(this, FALSE);
 }

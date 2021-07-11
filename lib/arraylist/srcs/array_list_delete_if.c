@@ -6,15 +6,15 @@
 /*   By: aait-ham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 19:36:27 by aait-ham          #+#    #+#             */
-/*   Updated: 2021/02/09 19:36:44 by aait-ham         ###   ########.fr       */
+/*   Updated: 2021/07/11 19:08:55 by aait-ham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_list.h"
 
-void	delete_if_free
-	(t_array_list *this, t_bool (*cond)(void *item),
-		void (*fe)(void *item), size_t ixx)
+	void	delete_if_free
+(t_array_list *this, t_bool (*cond)(void *item),
+ void (*fe)(void *item), size_t ixx)
 {
 	size_t i;
 
@@ -35,8 +35,8 @@ void	delete_if_free
 	}
 }
 
-void	delete_if
-	(t_array_list *this, t_bool (*cond)(void *item), void (*fe)(void *item))
+	void	delete_if
+(t_array_list *this, t_bool (*cond)(void *item), void (*fe)(void *item))
 {
 	size_t i;
 	size_t x;
