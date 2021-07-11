@@ -18,7 +18,8 @@ void	swap_a_cmd(t_stacks *this)
 		this->sa(this, FALSE);
 }
 
-void	swap_b_cmd(t_stacks *this){
+void	swap_b_cmd(t_stacks *this)
+{
 	if (this != NULL)
 		this->sb(this, FALSE);
 }

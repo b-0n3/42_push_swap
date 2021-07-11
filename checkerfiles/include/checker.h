@@ -14,7 +14,7 @@
 # define CHECKER_H
 # include "push_swap.h"
 # include "get_next_line.h"
-typedef void (*ex_cmd)(t_stacks *);
+typedef void	(*t_ex_cmd)(t_stacks *);
 void	reverse_rotate_a_cmd(t_stacks *this);
 void	reverse_rotate_b_cmd(t_stacks *this);
 void	reverse_rotate_a_and_b_cmd(t_stacks *this);

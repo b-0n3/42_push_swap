@@ -21,9 +21,10 @@ char	*ft_strchr( char *s, int c)
 	}
 	return ((char *)s);
 }
+
 char	*ft_strcpy(char *dest, char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -35,7 +36,7 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-char	*ft_strjoin(char  *s1, char  *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		l1;
 	int		i;
@@ -65,7 +66,7 @@ char	*ft_strjoin(char  *s1, char  *s2)
 
 char	*ft_strdup( char *src)
 {
-	const char *dest;
+	const char	*dest;
 
 	dest = malloc(sizeof(char) * (ft_strlen(src) + 1));
 	if (dest == 0)
@@ -74,7 +75,7 @@ char	*ft_strdup( char *src)
 	return ((char *)dest);
 }
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned int			i;
 	const unsigned char		*c1;
@@ -92,23 +93,4 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 		i++;
 	}
 	return (0);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t				i;
-	unsigned char		*d;
-	const unsigned char	*s;
-
-	d = dst;
-	s = src;
-	i = 0;
-	if ((!d && !s) || ft_memcmp(d, s, n) == 0)
-		return (dst);
-	while (i < n)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
 }

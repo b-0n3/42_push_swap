@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*p;
@@ -31,10 +32,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		start++;
 	}
 	p[i] = '\0';
-	return (char *)(p);
+	return ((char *)(p));
 }
 
-int			find(char **line, char **rest, int retn)
+int	find(char **line, char **rest, int retn)
 {
 	int		len;
 	char	*tmp;
@@ -59,10 +60,7 @@ int			find(char **line, char **rest, int retn)
 	return (retn);
 }
 
-
-
-
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char		*rest[255];
 	int				ret;

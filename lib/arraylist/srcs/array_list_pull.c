@@ -40,11 +40,9 @@ void	*pop_index(t_array_list *this, size_t index)
 	return (ptr);
 }
 
-void					swap_i(t_array_list *this, size_t i1, size_t i2)
+void	swap_i(t_array_list *this, size_t i1, size_t i2)
 {
 	if (this != NULL && i1 != i2)
-		if (i1 < this->index  && i2 < this->index)
-		{
+		if (i1 < this->index && i2 < this->index)
 			this->swap(&this->arr[i1], &this->arr[i2]);
-		}
 }

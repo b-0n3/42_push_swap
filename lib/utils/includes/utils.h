@@ -18,13 +18,12 @@
 void	ft_putnbr(int n);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
-int ft_strlen(char *str);
-int		ft_atoi( char *str);
-char	*ft_strdup( char *src);
+int		ft_strlen(char *str);
+int		ft_atoi(char *str);
+char	*ft_strdup(char *src);
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strchr( char *s, int c);
-char	*ft_strjoin(char  *s1, char  *s2);
+char	*ft_strjoin(char *s1, char *s2);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 #endif

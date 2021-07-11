@@ -12,14 +12,14 @@
 
 #include "utils.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 		i++;
-	return i;
+	return (i);
 }
 
 void	ft_putstr(char *str)
@@ -54,39 +54,4 @@ void	ft_putnbr(int n)
 		ft_putnbr(newvar / 10);
 		ft_putchar(newvar % 10 + 48);
 	}
-}
-
-int	ft_isspace(char c)
-{
-	if (c == '\n' || c == '\f' || c == ' '
-			|| c == '\r' || c == '\v' || c == '\t')
-		return (1);
-	return (0);
-}
-
-int	ft_atoi( char *str)
-{
-	int				i;
-	long long				n;
-	int				signe;
-
-	n = 0;
-	i = 0;
-	signe = 1;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i++] == '-')
-			signe = -1;
-	}
-	while (str[i] >= '0' && (str[i] <= '9') && str[i] != '\0')
-	{
-		if (((n * 10) > INT32_MAX )|| (n > INT32_MAX)
-				|| ((n == INT32_MAX)
-					&& (n % 10) > 7))
-			return INT32_MAX;
-		n = n * 10 + (*(str + (i++)) - '0');	
-	}
-	return ((int)n * signe);
 }

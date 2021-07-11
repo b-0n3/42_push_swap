@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-char		*search(int fd, char **rest, int *ret)
+char	*search(int fd, char **rest, int *ret)
 {
 	char	*tmp;
 	char	*ptr;

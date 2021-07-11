@@ -14,7 +14,7 @@
 
 void	foreach(t_array_list *this, void (*f)(void *item))
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < this->index)
@@ -27,7 +27,7 @@ void	foreach(t_array_list *this, void (*f)(void *item))
 
 void	ft_swap(void **a, void **b)
 {
-	void *temp;
+	void	*temp;
 
 	temp = *a;
 	*a = *b;

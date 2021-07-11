@@ -15,7 +15,7 @@ NAME= push_swap
 ARRAY_LIST = ./lib/arraylist/libarraylist.a
 
 ARRAY_LIST_INC = ./lib/arraylist/includes/
-UTILS= ./lib/utils/src/utils.c ./lib/utils/src/utils2.c
+UTILS= ./lib/utils/src/utils.c ./lib/utils/src/utils2.c ./lib/utils/src/utils3.c
 UTILS_INC = ./lib/utils/includes
 INC= ./headers/ -I $(ARRAY_LIST_INC)  -I $(UTILS_INC)
 

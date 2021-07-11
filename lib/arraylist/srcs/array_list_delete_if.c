@@ -12,11 +12,11 @@
 
 #include "array_list.h"
 
-void	delete_if_free
-(t_array_list *this, t_bool (*cond)(void *item),
- void (*fe)(void *item), size_t ixx)
+void	delete_if_free(t_array_list *this,
+			t_bool (*cond)(void *item),
+	 		void (*fe)(void *item), size_t ixx)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < this->index)
@@ -35,15 +35,15 @@ void	delete_if_free
 	}
 }
 
-void	delete_if
-(t_array_list *this, t_bool (*cond)(void *item), void (*fe)(void *item))
+void	delete_if(t_array_list *this,
+			t_bool (*cond)(void *item),
+			void (*fe)(void *item))
 {
-	size_t i;
-	size_t x;
-	size_t ixx;
+	size_t	i;
+	size_t	x;
+	size_t	ixx;
 
 	i = 0;
-	x = 0;
 	ixx = 0;
 	while (i < this->index)
 	{
@@ -53,11 +53,13 @@ void	delete_if
 			if (fe != NULL)
 				fe(this->arr[i]);
 			while (x++ < this->index)
+			{
 				if (!cond(this->arr[x]))
 				{
 					this->swap(&(this->arr[i]), &(this->arr[x]));
 					break ;
 				}
+			}
 		}
 		i++;
 	}

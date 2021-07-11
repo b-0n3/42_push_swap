@@ -23,6 +23,7 @@ t_array_list	*filter_list(t_array_list this, size_t size,
 	new_array_list(list, this.index + 1, size);
 	i = 0;
 	if (cond != NULL)
+	{
 		while (i < this.index)
 		{
 			item = this.get(&this, i);
@@ -34,5 +35,6 @@ t_array_list	*filter_list(t_array_list this, size_t size,
 			}
 			i++;
 		}
+	}
 	return (list);
 }

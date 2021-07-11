@@ -76,7 +76,7 @@ int get_query_index(char *query, t_array_list commands)
 	} 
 	return (-1);
 }
-ex_cmd execute(char *query, t_array_list commands)
+t_ex_cmd execute(char *query, t_array_list commands)
 {
 	int index;
 

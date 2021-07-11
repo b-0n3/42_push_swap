@@ -21,5 +21,5 @@ void	push_b_cmd(t_stacks *this)
 void	push_a_cmd(t_stacks *this)
 {
 	if (this != NULL)
-		this->pa(this,  FALSE);
+		this->pa(this, FALSE);
 }

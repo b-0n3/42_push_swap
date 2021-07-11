@@ -12,9 +12,8 @@
 
 #include "array_list.h"
 
-	int		partition
-(t_array_list *this, int low,
- int high, int (*cond)(void *item1, void *item2))
+int	partition(t_array_list *this, int low,
+			int high, int (*cond)(void *item1, void *item2))
 {
 	void	*pivot;
 	int		i;
@@ -27,7 +26,7 @@
 	{
 		if (cond(this->arr[j], pivot) == 1)
 		{
-			i++; 
+			i++;
 			this->swap(&(this->arr[i]), &(this->arr[j]));
 		}
 		j++;
@@ -36,10 +35,11 @@
 	return (i + 1);
 }
 
-	void	sort
-(t_array_list *this, int (*cond)(void *item1, void *item2), int l, int r)
+void	sort(t_array_list *this,
+			int (*cond)(void *item1,
+			void *item2), int l, int r)
 {
-	int pi;
+	int	pi;
 
 	if (l < r)
 	{
