@@ -35,4 +35,5 @@ void	array_list_free(t_array_list *this, void (*fe)(void *item))
 		this->foreach(this, fe);
 	this->index = 0;
 	free(this->arr);
+	this->arr = NULL;
 }

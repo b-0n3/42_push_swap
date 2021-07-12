@@ -37,14 +37,20 @@ SRC= ./src/check.c \
 		./src/sort_tree.c \
 		./src/swap.c $(UTILS)
 
-FLAGS = -Wall -Wextra -Werror -g 
+FLAGS = -Wall -Wextra -Werror -g  
 
 CHECKER = checker
 CHECKER_INC = ./checkerfiles/include/  -I $(INC) -I $(GNL_INC)
 
-CHECKER_SRC = ./checkerfiles/src/*.c ./src/check_input.c \
-./src/check.c ./src/init.c ./src/push.c \
- ./src/reverse_rotate.c ./src/rotate.c ./src/swap.c $(GNL_SRC) $(UTILS) ./src/chunk.c
+CHECKER_SRC = ./checkerfiles/src/checker.c \
+		./checkerfiles/src/main.c \
+		./checkerfiles/src/push.c \
+		./checkerfiles/src/reverse_rotate.c \
+		./checkerfiles/src/rotate.c \
+		./checkerfiles/src/swap.c ./src/check_input.c \
+		./src/check.c ./src/init.c ./src/push.c \
+		 ./src/reverse_rotate.c ./src/rotate.c ./src/swap.c \
+		  $(GNL_SRC) $(UTILS) ./src/chunk.c
 
 all: $(NAME)
 
@@ -52,21 +58,27 @@ all: $(NAME)
 $(NAME): array_list
 	gcc $(FLAGS) $(SRC) $(ARRAY_LIST) -I $(INC) -o $(NAME)
 
-fclean:
+fclean: array_list_fclean
 	rm -rf $(NAME)
 
-re: fclean all
+re: fclean array_list_re all
 
 
-checker: 
+checker: array_list
 	gcc  $(CHECKER_SRC) $(ARRAY_LIST) -I $(CHECKER_INC) -o $(CHECKER)
 
-checker_re: checker_fclean checker
+checker_re: checker_fclean  array_list_re checker
 
 
-checker_fclean:
+checker_fclean: array_list_fclean
 	rm -rf $(CHECKER)
 
 array_list:
 	make -C ./lib/arraylist/
+
+array_list_re:
+	make re -C ./lib/arraylist/
+
+array_list_fclean:
+	make fclean -C ./lib/arraylist/
 
