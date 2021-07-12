@@ -16,8 +16,8 @@ void	free_stacks(t_stacks *this)
 {
 	if (this != NULL)
 	{
-		this->stack_b.free(&this->stack_b , &free_chunk);
-		this->stack_a.free(&this->stack_a , &free_chunk);
+		this->stack_b.free(&this->stack_b, &free_chunk);
+		this->stack_a.free(&this->stack_a, &free_chunk);
 	}
 }
 

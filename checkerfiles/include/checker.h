@@ -25,5 +25,7 @@ void	rotate_b_cmd(t_stacks *this);
 void	rotate_a_cmd(t_stacks *this);
 void	swap_a_and_b_cmd(t_stacks *this);
 void	swap_b_cmd(t_stacks *this);
+int		sort_the_stack(t_stacks *stacks);
+void	init_commands(t_array_list *list);
 void	swap_a_cmd(t_stacks *this);
 #endif

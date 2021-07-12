@@ -51,9 +51,8 @@ typedef struct s_chunk{
 t_chunk	*new_chunk(int *value, int index);
 int		chunk_compare(void *v1, void *v2);
 void	print_chunk(t_chunk *this);
-
+void	*clone_chunk(void *item);
 void	free_chunk(void *this);
-
 void	new_stacks(t_stacks *this);
 void	swap_a(t_stacks *this, t_bool print);
 void	swap_b(t_stacks *this, t_bool print);

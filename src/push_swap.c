@@ -12,17 +12,17 @@
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_stacks stacks;
+	t_stacks	stacks;
 
 	new_stacks(&stacks);
 	argc--;
 	while (argc > 0)
 	{
 		if (stacks.stack_a.push(&stacks.stack_a,
-					new_chunk(ft_newnb(argv[argc]), stacks.stack_a.index)
-					, sizeof(t_chunk *)) == FALSE)
+				new_chunk(ft_newnb(argv[argc]), stacks.stack_a.index)
+				, sizeof(t_chunk *)) == FALSE)
 		{
 			ft_putstr("Error\n");
 			stacks.free(&stacks);

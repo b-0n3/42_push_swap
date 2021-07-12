@@ -14,7 +14,7 @@
 
 void	push_b(t_stacks *this, t_bool print)
 {
-	void *ptr;
+	void	*ptr;
 
 	if (this != NULL)
 	{
@@ -25,7 +25,7 @@ void	push_b(t_stacks *this, t_bool print)
 			{
 				if (print)
 					ft_putstr("pb\n");
-				this->stack_b.push(&this->stack_b, ptr, sizeof (t_chunk *));            
+				this->stack_b.push(&this->stack_b, ptr, sizeof(t_chunk *));
 			}
 		}
 	}
@@ -33,7 +33,7 @@ void	push_b(t_stacks *this, t_bool print)
 
 void	push_a(t_stacks *this, t_bool print)
 {
-	void *ptr;
+	void	*ptr;
 
 	if (this != NULL)
 	{
@@ -44,7 +44,7 @@ void	push_a(t_stacks *this, t_bool print)
 			{
 				if (print)
 					ft_putstr("pa\n");
-				this->stack_a.push(&this->stack_a, ptr, sizeof (t_chunk *));            
+				this->stack_a.push(&this->stack_a, ptr, sizeof (t_chunk *));
 			}
 		}
 	}
