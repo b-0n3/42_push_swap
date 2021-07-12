@@ -67,7 +67,10 @@ void	push_to_b(t_stacks *stacks, int nb, int chunk_n);
 void	push_to_a(t_stacks *stacks, int nb, int chunk_n);	
 t_chunk	*filter_first_chunk_and_get_pivot(
 			t_array_list stack, t_array_list *clone);
-
+t_bool	is_there_other_smaller_elements(
+			t_array_list *stack, t_chunk *pivot);
+t_bool	is_there_other_greater_elements(
+			t_array_list *stack, t_chunk *pivot);
 void	clone_a_first_chunks_and_sort_it(
 			t_stacks *stacks, t_array_list *clone,
 			int current_chunk);

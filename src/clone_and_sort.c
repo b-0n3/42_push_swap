@@ -32,9 +32,9 @@ void	clone_a_first_chunks_and_sort_it(
 	int		nb_ra;
 	t_chunk	*pivot;
 	t_chunk	*current;
-	size_t	stack_size;
+	size_t	ss;
 
-	stack_size = stacks->stack_a.index;
+	ss = stacks->stack_a.index;
 	pivot = filter_first_chunk_and_get_pivot(stacks->stack_a, clone);
 	if (clone->index <= 2)
 	{
@@ -42,10 +42,10 @@ void	clone_a_first_chunks_and_sort_it(
 			stacks->sa(stacks, TRUE);
 		return ;
 	}
-	current = stacks->stack_a.get(&stacks->stack_a,
-			stacks->stack_a.index - 1);
-	nb_ra = filter_smaller_number_and_push_to_b(current, stacks, pivot, current_chunk);			
-	if (clone->index != stack_size)
+	current = stacks->stack_a.get(&stacks->stack_a, ss - 1);
+	nb_ra = filter_smaller_number_and_push_to_b(current,
+			stacks, pivot, current_chunk);
+	if (clone->index != ss)
 	{
 		while (nb_ra)
 		{
