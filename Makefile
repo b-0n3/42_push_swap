@@ -21,8 +21,21 @@ INC= ./headers/ -I $(ARRAY_LIST_INC)  -I $(UTILS_INC)
 
 GNL_INC= ./lib/getnextline/includes	
 GNL_SRC= ./lib/getnextline/src/*.c
-SRC= ./src/init.c ./src/push_swap.c ./src/push.c ./src/reverse_rotate.c ./src/rotate.c ./src/swap.c \
-  ./src/check.c ./src/chunk.c ./src/check_input.c ./src/sort.c $(UTILS)
+SRC= ./src/check.c \
+		./src/check_input.c  \
+		./src/chunk.c \
+		./src/clone_and_sort.c \
+		./src/filter_chunks.c \
+		./src/find_elements.c \
+		./src/init.c \
+		./src/push.c \
+		./src/push_swap.c \
+		./src/push_to.c \
+		./src/reverse_rotate.c  \
+		./src/rotate.c \
+		./src/sort.c \
+		./src/sort_tree.c \
+		./src/swap.c $(UTILS)
 
 FLAGS = -Wall -Wextra -Werror -g 
 
