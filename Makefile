@@ -82,3 +82,6 @@ array_list_re:
 array_list_fclean:
 	make fclean -C ./lib/arraylist/
 
+
+vis:
+	python3 pyviz.py `ruby -e "puts (-200..200).to_a.shuffle.join(' ')"`
